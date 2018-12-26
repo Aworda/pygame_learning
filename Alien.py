@@ -5,11 +5,12 @@ from pygame.sprite import Sprite
 class Alien(Sprite):
     """A class to represent a single alien in the fleet."""
 
-    def __init__(self, ai_settings, screen):
+    def __init__(self, settings, screen):
         """Initialize the alien, and set its starting position."""
-        super(Alien, self).__init__()
+        super().__init__()
         self.screen = screen
-        self.ai_settings = ai_settings
+        self.settings = settings
+
 
         # Load the alien image, and set its rect attribute.
         self.image = pygame.image.load('image/alien.bmp')
@@ -32,10 +33,11 @@ class Alien(Sprite):
 
     def update(self):
         """Move the alien right or left."""
-        self.x += (self.ai_settings.alien_speed_factor *
-                   self.ai_settings.fleet_direction)
+        self.x += (self.settings.alien_speed_factor *
+                   self.settings.fleet_direction)
         self.rect.x = self.x
 
-    def blitme(self):
+    def blitme(self,screen):
         """Draw the alien at its current location."""
         self.screen.blit(self.image, self.rect)
+

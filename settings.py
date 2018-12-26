@@ -11,3 +11,5 @@ class Settings():
         self.bullet_color=(60,60,60)
         self.bullet_fre=3
         self.bullet_nowcount=self.bullet_fre
+        self.game_active=False
+        self.score="0"
